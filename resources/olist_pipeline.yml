@@ -1,0 +1,53 @@
+# resources/olist_pipeline.yml
+# Declarative definition of the SDP pipeline that orchestrates the
+# Bronze → Silver → Gold medallion transformations.
+#
+# This pipeline was originally created via the Databricks UI in Phase 4.
+# Bundle-managing it means the pipeline definition lives in version
+#
+# Reference: https://docs.databricks.com/aws/en/dev-tools/bundles/pipelines-tutorial
+# Pipeline resource schema: https://docs.databricks.com/aws/en/dev-tools/bundles/resources#pipeline
+
+resources:
+  pipelines:
+    olist_medallion_pipeline:
+      name: "olist-medallion-pipeline"
+
+      # Unity Catalog destination. `target` is the schema where
+      # SDP-managed materialized views and streaming tables land.
+      catalog: "olist_lakehouse_us"
+      target: "dlt_output"
+
+      # Serverless compute — no cluster config needed. 
+      serverless: true
+
+      # CURRENT channel = stable runtime; PREVIEW channel exposes
+      # newer features but is not for production. ADVANCED edition
+      # is required for expectations (`@dp.expect_or_fail` etc.).
+      channel: CURRENT
+      edition: ADVANCED
+
+      # Triggered (vs. continuous) — pipeline runs to completion
+      # then stops, releasing serverless capacity. Continuous mode
+      # would keep compute warm 24/7, which doesn't fit the trial
+      # budget and isn't justified for a batch medallion pipeline.
+      continuous: false
+      development: false
+
+      # Pipeline source files. SDP infers the DAG between these by
+      # scanning for `dp.read()` / `dp.read_stream()` calls — file
+      # order in this list does NOT determine execution order.
+      libraries:
+        - notebook:
+            path: ../pipelines/sdp_01_bronze.py
+        - notebook:
+            path: ../pipelines/sdp_02_silver_core.py
+        - notebook:
+            path: ../pipelines/sdp_02_silver_enrich.py
+        - notebook:
+            path: ../pipelines/sdp_03_gold.py
+
+      # Notifications would go here in production:
+      # notifications:
+      #   - email_recipients: [data-eng-oncall@example.com]
+      #     alerts: [on-update-failure, on-flow-failure]

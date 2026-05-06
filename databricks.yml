@@ -1,0 +1,53 @@
+# databricks.yml
+# Bundle entry point for the olist-lakehouse project.
+# Deploy with:  databricks bundle deploy --target dev
+# Validate with: databricks bundle validate --target dev
+#
+# Reference: https://docs.databricks.com/aws/en/dev-tools/bundles/settings
+
+bundle:
+  name: olist-lakehouse
+
+# Pull in resource definitions from the resources/ directory.
+# Splitting resources into separate files keeps databricks.yml short
+# and makes resources individually reviewable in PRs.
+include:
+  - resources/*.yml
+
+# Workspace host — the same URL you'd paste into a browser.
+# No token here: auth resolves via ~/.databrickscfg profile or
+# DATABRICKS_CONFIG_PROFILE env var. 
+workspace:
+  host: https://<your-workspace-url>.gcp.databricks.com
+
+# Targets are deployment environments. `mode: development` prefixes
+# all resources with [dev <username>] and pauses schedules — so a
+# dev deploy can never accidentally trigger a production pipeline.
+# `mode: production` removes the prefix and enforces stricter checks
+# (e.g., requires explicit run_as identity).
+#
+# Reference: https://docs.databricks.com/aws/en/dev-tools/bundles/deployment-modes
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      # Per-user dev workspace path keeps multiple devs isolated.
+      # ${workspace.current_user.userName} resolves at deploy time.
+      root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
+
+  prod:
+    mode: production
+    workspace:
+      # Shared root path — production deploys land in /Shared, not
+      # in any individual user's home, so they survive that user
+      # leaving the org.
+      root_path: /Shared/.bundle/prod/${bundle.name}
+    # Production permissions are illustrative for portfolio purposes.
+    # In a real org these group names would already exist in the
+    # account; here they're documented as the intent.
+    permissions:
+      - level: CAN_MANAGE
+        group_name: data_engineers
+      - level: CAN_VIEW
+        group_name: analysts

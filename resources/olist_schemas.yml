@@ -1,0 +1,35 @@
+# resources/olist_schemas.yml
+# Schema-as-code: the three medallion-layer schemas defined as
+# bundle-managed Unity Catalog resources.
+#
+# Note: `olist_lakehouse_us` already exists (auto-created workspace
+# catalog) and is therefore NOT defined here. The
+# bundle creates schemas WITHIN that catalog; the catalog itself
+# is a precondition.
+#
+# Reference: https://docs.databricks.com/aws/en/dev-tools/bundles/resources#schema
+
+resources:
+  schemas:
+    bronze_schema:
+      catalog_name: olist_lakehouse_us
+      name: bronze
+      comment: "Raw ingested data — Auto Loader landing zone. Preserves source bit-for-bit, including known anomalies (typo'd `lenght` columns, geolocation duplicates, composite-PK reviews)."
+
+    silver_schema:
+      catalog_name: olist_lakehouse_us
+      name: silver
+      comment: "Cleaned and enriched data — type-fixed, deduplicated, business logic applied. Hosts the two UC SQL UDFs (`order_health_status`, `delivery_sla_status`)."
+
+    gold_schema:
+      catalog_name: olist_lakehouse_us
+      name: gold
+      comment: "Business-ready aggregates — denormalized facts and metric tables that back the SQL dashboards. `delivered`-only filter applied; min-volume HAVING thresholds enforced."
+
+    # dlt_output is the SDP pipeline target. Defining it here means
+    # the bundle owns its lifecycle: a clean-slate deploy creates it,
+    # `databricks bundle destroy` removes it.
+    dlt_output_schema:
+      catalog_name: olist_lakehouse_us
+      name: dlt_output
+      comment: "SDP pipeline output — materialized views, streaming tables, and the published event log (`event_log_olist_medallion_pipeline`)."
