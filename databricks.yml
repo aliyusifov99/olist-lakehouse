@@ -18,7 +18,7 @@ include:
 # No token here: auth resolves via ~/.databrickscfg profile or
 # DATABRICKS_CONFIG_PROFILE env var. 
 workspace:
-  host: https://<your-workspace-url>.gcp.databricks.com
+  host: https://8259551777228547.gcp.databricks.com
 
 # Targets are deployment environments. `mode: development` prefixes
 # all resources with [dev <username>] and pauses schedules — so a
