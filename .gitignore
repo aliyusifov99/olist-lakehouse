@@ -1,0 +1,61 @@
+# ===== DATABRICKS WORKSPACE & CLI ARTIFACTS =====
+# These directories/files are created by the Databricks CLI on the local machine
+# during `databricks auth login`, `databricks bundle deploy`, etc.
+# They contain auth tokens, bundle state, and workspace caches — never commit.
+.databricks/
+.databrickscfg
+.bundle/
+.databricks-cli/
+
+# ===== GCP CREDENTIALS =====
+# Service account JSON keys are the #1 leak vector for GCP projects.
+# Excluding *.json wholesale; the !package*.json exception is for Node projects
+# (irrelevant here, but kept as a defensive default if the repo ever grows).
+*.json
+!package.json
+!package-lock.json
+
+# ===== PYTHON =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+.env
+*.env
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ===== JUPYTER / NOTEBOOK OUTPUTS =====
+.ipynb_checkpoints/
+*.ipynb_checkpoints/
+
+# ===== IDE / EDITOR =====
+.vscode/settings.json
+.vscode/launch.json
+.idea/
+*.swp
+*.swo
+*~
+
+# ===== DATA (raw CSVs, parquet, downloaded archives) =====
+# The Olist CSVs live in GCS, not in the repo. data/README.md will document
+# how to download them from Kaggle. The data files themselves stay out.
+data/*.csv
+data/*.parquet
+data/*.zip
+data/*.tar.gz
+!data/README.md
+
+# ===== OS METADATA =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== LOGS =====
+*.log
+logs/
