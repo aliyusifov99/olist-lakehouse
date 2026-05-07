@@ -35,6 +35,12 @@
 # MAGIC -- ============================================================
 # MAGIC -- Phase 7 — Create the Recipient and Grant Access
 # MAGIC -- ------------------------------------------------------------
+# MAGIC -- ⚠️ FOR REFERENCE ONLY — NOT EXECUTED.
+# MAGIC -- This cell documents the open-sharing recipient pattern. The
+# MAGIC -- portfolio scope only exercises the share half (cell above);
+# MAGIC -- recipient creation was deliberately skipped. See
+# MAGIC -- phases_notes_and_plan/phase_7_notes.md for rationale.
+# MAGIC -- ------------------------------------------------------------
 # MAGIC -- Open-sharing recipient: token-based, for consumers without a
 # MAGIC -- Databricks workspace (external BI tools, partners, customers).
 # MAGIC -- Databricks issues an activation URL + bearer token bundled
