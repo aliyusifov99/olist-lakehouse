@@ -18,7 +18,7 @@ resources:
       catalog: "olist_lakehouse_us"
       target: "dlt_output"
 
-      # Serverless compute — no cluster config needed. 
+      # Serverless compute — no cluster config needed.
       serverless: true
 
       # CURRENT channel = stable runtime; PREVIEW channel exposes
@@ -37,15 +37,21 @@ resources:
       # Pipeline source files. SDP infers the DAG between these by
       # scanning for `dp.read()` / `dp.read_stream()` calls — file
       # order in this list does NOT determine execution order.
+      #
+      # Paths are relative to *this* YAML file (resources/), so
+      # `../pipelines/phase_4_dlt_pipelines/pipelines/` traverses up
+      # to repo root, then into the nested SDP source directory. The
+      # nesting mirrors the per-phase grouping convention used across
+      # the rest of the repo (`notebooks/phase_X_<topic>/`).
       libraries:
         - notebook:
-            path: ../pipelines/sdp_01_bronze.py
+            path: ../pipelines/phase_4_dlt_pipelines/pipelines/sdp_01_bronze.py
         - notebook:
-            path: ../pipelines/sdp_02_silver_core.py
+            path: ../pipelines/phase_4_dlt_pipelines/pipelines/sdp_02_silver_core.py
         - notebook:
-            path: ../pipelines/sdp_02_silver_enrich.py
+            path: ../pipelines/phase_4_dlt_pipelines/pipelines/sdp_02_silver_enrich.py
         - notebook:
-            path: ../pipelines/sdp_03_gold.py
+            path: ../pipelines/phase_4_dlt_pipelines/pipelines/sdp_03_gold.py
 
       # Notifications would go here in production:
       # notifications:
