@@ -92,29 +92,14 @@ print("\n✅ Phase 8 verification passed")
 # This is THE pattern to remember for the exam:
 #   dbutils.secrets.get(scope=..., key=...)
 #
-# The returned value is a string. CRITICAL behavior: if you print() it
-# directly, Databricks redacts it to `[REDACTED]` in notebook output.
-# This is a notebook-display safeguard against accidentally leaking secrets
-# in shared notebook screenshots / exported HTML.
-#
-# The redaction happens at the cell-output renderer, not in the variable
-# itself — the actual string value is in memory and usable for API calls,
-# JDBC connections, etc. You just can't print it as-is.
+# The returned value is a string. Do not print it or derived values such
+# as URLs, paths, substrings, or lengths. Databricks may redact direct
+# secret output in notebooks, but safe code should treat the value as
+# sensitive once it is in memory.
 
-bucket_name = dbutils.secrets.get(scope="olist-scope", key="<YOUR-SECRET-KEY>")
+bucket_name = dbutils.secrets.get(scope="olist-scope", key="gcs-bucket-name")
 
-# This will display [REDACTED] in the cell output, even though
-# bucket_name == "<YOUR-SECRET-KEY>" in memory.
-print(f"Retrieved bucket name: {bucket_name}")
-
-# Use it in a path construction — this works because the redaction is
-# at the print boundary, not on the string itself:
-raw_path = f"gs://{bucket_name}/landing"
-print(f"Constructed path (also redacted): {raw_path}")
-
-# Demonstrating that it really is the right value: length check.
-# This bypasses the redaction because we're printing an int, not the string.
-print(f"Length of retrieved string: {len(bucket_name)} chars (expected 23)")
+assert bucket_name, "Secret value should be present"
+print("Secret retrieval succeeded")
 
 # COMMAND ----------
-

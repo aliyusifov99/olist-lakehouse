@@ -82,19 +82,21 @@
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC -- Step 2: revoke SELECT from current_user.
+# MAGIC -- Step 2: revoke SELECT from a demo principal.
 # MAGIC -- Note: this revokes EXPLICIT SELECT. If the user is the table owner,
 # MAGIC -- the implicit OWNERSHIP-derived SELECT remains, and queries still work.
 # MAGIC -- For a clean demo we use a Bronze table whose ownership we don't rely
 # MAGIC -- on for downstream work.
+# MAGIC -- Replace `<YOUR-EMAIL>` with a test principal in a private workspace,
+# MAGIC -- or use a group such as `data_engineers` for production governance.
 # MAGIC
-# MAGIC REVOKE SELECT ON TABLE olist_lakehouse_us.bronze.geolocation FROM `ali.yusifov.upwork@gmail.com`;
+# MAGIC -- REVOKE SELECT ON TABLE olist_lakehouse_us.bronze.geolocation FROM `<YOUR-EMAIL>`;
 
 # COMMAND ----------
 
 # MAGIC %sql
 # MAGIC -- Step 3: re-grant SELECT
-# MAGIC GRANT SELECT ON TABLE olist_lakehouse_us.bronze.geolocation TO `ali.yusifov.upwork@gmail.com`;
+# MAGIC -- GRANT SELECT ON TABLE olist_lakehouse_us.bronze.geolocation TO `<YOUR-EMAIL>`;
 
 # COMMAND ----------
 

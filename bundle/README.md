@@ -65,6 +65,16 @@ The bundle relies on the local Databricks CLI profile resolved via
 `precommit_audit.sh` script explicitly checks that
 `databricks.yml` does not contain a `token:` field.
 
+The workspace host is also supplied outside git so the public config
+does not expose workspace metadata:
+
+```bash
+databricks bundle validate --target dev --var databricks_host=https://<workspace-host>
+```
+
+For repeated local use, set `BUNDLE_VAR_databricks_host` in your shell
+instead of passing `--var` every time.
+
 ## Status
 
 The bundle YAML is **authored and validated**, but the actual
