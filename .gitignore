@@ -59,3 +59,4 @@ desktop.ini
 # ===== LOGS =====
 *.log
 logs/
+phases_notes_and_plan/
