@@ -37,7 +37,7 @@ This project lands the CSVs in a GCS bucket; Databricks Auto Loader picks them u
    gsutil -m cp *.csv gs://<your-bucket-name>/landing/
 ```
 
-4. **Run the Phase 1 ingestion notebook** (`notebooks/phase_1/01_bronze_ingestion.py`) which uses Auto Loader to incrementally pick up the files into the `bronze` schema.
+4. **Run the Phase 1 ingestion notebook** (`notebooks/phase_1_bronze_ingestion/01_bronze_ingestion.py`) which uses Auto Loader to incrementally pick up the files into the `bronze` schema.
 
 ## Why CSVs and not the dataset's parquet/json variants
 
