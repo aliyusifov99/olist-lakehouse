@@ -74,5 +74,3 @@ commit, not to skip the review.
 
 ## What to do if a check fails
 
-See `RECOVERY_RUNBOOK.md` (Subphase 8.3 — generated next). TL;DR:
-**rotate the credential first**, *then* clean up the git history.
