@@ -72,7 +72,7 @@
 # MAGIC
 # MAGIC **Reviews attribute to all sellers in the order.** A multi-seller order's review
 # MAGIC counts toward every seller in the order. This mirrors the category attribution
-# MAGIC in 3.4 — the review reflects the whole order experience. Good sellers paired
+# MAGIC in `category_analytics` — the review reflects the whole order experience. Good sellers paired
 # MAGIC with bad sellers in the same order will share blame; the noise washes out across
 # MAGIC many orders.
 # MAGIC

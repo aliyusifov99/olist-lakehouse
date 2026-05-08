@@ -1,7 +1,7 @@
 # Databricks notebook source
 # MAGIC %md
 # MAGIC %md
-# MAGIC # Phase 6.2 — Column-level Comments
+# MAGIC # Phase 6 — Column-level Comments
 # MAGIC
 # MAGIC Adds comments to columns where a consumer could plausibly use them
 # MAGIC incorrectly without one. Selection rule: a column gets a comment if its

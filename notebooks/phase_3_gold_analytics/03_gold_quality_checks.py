@@ -25,7 +25,7 @@
 # MAGIC ## What it doesn't cover
 # MAGIC
 # MAGIC - Per-table PK uniqueness, score-bucket sums, etc. — those are validated in each
-# MAGIC   sub-phase's own Cell 5
+# MAGIC   table's own Cell 5
 # MAGIC - Per-row checks against Silver — that's the per-table CTAS's job
 # MAGIC - Hard quality gating — that's Phase 4 DLT's `@dlt.expect_or_drop` job
 
@@ -171,7 +171,7 @@ run_check(
 # MAGIC ## Category 2 — Volume reconciliation
 # MAGIC
 # MAGIC Order and customer counts across tables. The canonical "delivered orders" count
-# MAGIC comes from `monthly_revenue.SUM(order_count)` ≈ 97,276 (per sub-phase 3.1 Cell 6).
+# MAGIC comes from `monthly_revenue.SUM(order_count)` ≈ 97,276 (per the `monthly_revenue` notebook's Cell 6).
 # MAGIC Other tables should match or have documented reasons to differ.
 # MAGIC
 # MAGIC | Source | Expected behavior |

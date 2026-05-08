@@ -1,7 +1,7 @@
 # Databricks notebook source
 # MAGIC %md
 # MAGIC %md
-# MAGIC # Phase 6.1 — Table-level Comments
+# MAGIC # Phase 6 — Table-level Comments
 # MAGIC
 # MAGIC Adds a one-line description to every Bronze, Silver, and Gold table in
 # MAGIC `olist_lakehouse_us`. Comments render in Catalog Explorer, `DESCRIBE TABLE

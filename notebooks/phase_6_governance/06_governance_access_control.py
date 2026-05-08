@@ -6,7 +6,7 @@
 
 # MAGIC %md
 # MAGIC %md
-# MAGIC # Phase 6.4 — Access Control: Patterns and Working Demos
+# MAGIC # Phase 6 — Access Control: Patterns and Working Demos
 # MAGIC
 # MAGIC Single-user workspace, but four governance mechanics ARE demonstrable:
 # MAGIC
@@ -230,7 +230,7 @@
 # MAGIC
 # MAGIC -- Pattern 3: PII-readers subgroup with mask bypass
 # MAGIC -- ----------------------------------------------------------------
-# MAGIC -- The mask function in 6.4.c already branches on
+# MAGIC -- The mask function in Pattern 3 above already branches on
 # MAGIC -- IS_ACCOUNT_GROUP_MEMBER('pii_readers'). To make that real:
 # MAGIC -- GRANT SELECT ON TABLE olist_lakehouse_us.silver.customers TO `pii_readers`;
 # MAGIC -- (Members of pii_readers would see the unmasked customer_unique_id;

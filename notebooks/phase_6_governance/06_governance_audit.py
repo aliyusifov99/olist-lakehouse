@@ -1,17 +1,17 @@
 # Databricks notebook source
 # MAGIC %md
 # MAGIC %md
-# MAGIC # Phase 6.5 — Governance Audit
+# MAGIC # Phase 6 — Governance Audit
 # MAGIC
 # MAGIC Single notebook, runnable end-to-end, verifies that every governance
-# MAGIC artifact applied in 6.1-6.4 is in place and consistent.
+# MAGIC artifact applied earlier in this phase is in place and consistent.
 # MAGIC
 # MAGIC Five check categories:
 # MAGIC 1. Table-level comments present on all managed tables
 # MAGIC 2. Column-level comments persisted (didn't drift after rebuilds)
 # MAGIC 3. All 5 tags applied to every managed table
 # MAGIC 4. Tag values fall within the allowed vocabulary
-# MAGIC 5. Phase 6.4 access-control objects are registered and attached
+# MAGIC 5. Phase 6 access-control objects are registered and attached
 # MAGIC
 # MAGIC Final cell summarizes PASS/FAIL counts. Re-runnable; no side effects.
 # MAGIC

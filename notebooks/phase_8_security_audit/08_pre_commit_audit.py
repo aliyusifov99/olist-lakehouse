@@ -1,6 +1,6 @@
 # Databricks notebook source
 # MAGIC %md
-# MAGIC # Phase 8.2 — Pre-Commit Audit Checklist
+# MAGIC # Phase 8 — Pre-Commit Audit Checklist
 # MAGIC
 # MAGIC Documents the content-level scan to run before every `git push` from
 # MAGIC the local repo. Complementary to `.gitignore` (which filters
@@ -101,7 +101,7 @@ commit, not to skip the review.
 
 ## What to do if a check fails
 
-See `RECOVERY_RUNBOOK.md` (Subphase 8.3 — generated next). TL;DR:
+See `RECOVERY_RUNBOOK.md` (generated next). TL;DR:
 **rotate the credential first**, *then* clean up the git history.
 """
 
@@ -357,7 +357,7 @@ with open(out_path, "w", encoding="utf-8") as f:
     f.write(EXAMPLES_MD)
 
 print(f"✅ Wrote {out_path} ({len(EXAMPLES_MD)} chars)")
-print("\n=== Phase 8.2 artifacts written ===")
+print("\n=== Phase 8 artifacts written ===")
 import os as _os
 for fname in sorted(_os.listdir(out_dir)):
     fpath = f"{out_dir}/{fname}"

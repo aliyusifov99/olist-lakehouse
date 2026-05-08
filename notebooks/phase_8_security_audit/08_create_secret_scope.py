@@ -1,6 +1,6 @@
 # Databricks notebook source
 # MAGIC %md
-# MAGIC # Phase 8.1 — Create Secret Scope (Demonstration)
+# MAGIC # Phase 8 — Create Secret Scope (Demonstration)
 # MAGIC
 # MAGIC Creates `olist-scope` (Databricks-backed) and stores one demonstration
 # MAGIC secret (`gcs-bucket-name`). The bucket name is **not** sensitive — this

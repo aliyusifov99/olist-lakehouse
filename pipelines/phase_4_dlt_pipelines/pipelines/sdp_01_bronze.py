@@ -32,7 +32,7 @@
 # MAGIC
 # MAGIC The `pipelines` module is *only* importable inside a pipeline run — it will fail
 # MAGIC with `ModuleNotFoundError` if you try to run this notebook attached to a regular
-# MAGIC interactive cluster. That's expected; we'll run it via the SDP runtime in 4.5.
+# MAGIC interactive cluster. That's expected; we'll run it via the SDP runtime.
 
 # COMMAND ----------
 

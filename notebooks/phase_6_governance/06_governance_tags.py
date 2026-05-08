@@ -1,7 +1,7 @@
 # Databricks notebook source
 # MAGIC %md
 # MAGIC %md
-# MAGIC # Phase 6.3 — Table Tags
+# MAGIC # Phase 6 — Table Tags
 # MAGIC
 # MAGIC Applies a 5-key tag vocabulary to every Bronze, Silver, and Gold table:
 # MAGIC
