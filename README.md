@@ -52,6 +52,8 @@ Kaggle CSVs → GCS landing → Bronze (Auto Loader) → Silver (ETL) → Gold (
 
 ## Project Phases
 
+> 📖 For a guided phase-by-phase walkthrough with key concepts and code snippets, see **[GUIDE.md](GUIDE.md)**.
+
 | # | Phase | Path |
 |---|---|---|
 | 0 | Environment setup, catalog & schemas | [setup/phase_0_setup/](setup/phase_0_setup/) |
@@ -125,7 +127,7 @@ databricks bundle deploy --target dev
 databricks bundle run olist_medallion_pipeline --target dev
 ```
 
-Detailed bootstrap & data instructions: [data/README.md](data/README.md) · [bundle/README.md](bundle/README.md).
+Detailed bootstrap & data instructions: [data/README.md](data/README.md) · [bundle/README.md](bundle/README.md). For the narrative tour, see [GUIDE.md](GUIDE.md).
 
 ---
 
@@ -138,6 +140,7 @@ Detailed bootstrap & data instructions: [data/README.md](data/README.md) · [bun
 ├── data/                         # Dataset bootstrap instructions (CSVs gitignored)
 ├── databricks.yml                # Bundle entry point
 ├── docs/                         # Audit checklist & examples
+├── GUIDE.md                      # Phase-by-phase walkthrough guide
 ├── images/                       # README screenshots
 ├── notebooks/                    # Phase 1, 2, 3, 5, 6, 7, 8 notebooks
 ├── pipelines/phase_4_dlt_pipelines/  # SDP (Lakeflow) declarative pipelines
