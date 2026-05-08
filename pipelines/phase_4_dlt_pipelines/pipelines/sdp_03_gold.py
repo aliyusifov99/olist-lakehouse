@@ -166,8 +166,7 @@ def gold_delivery_performance_dlt():
 # MAGIC that the final view consumes.
 # MAGIC
 # MAGIC Second, this notebook so far has been all `spark.sql(...)`. One DataFrame-API
-# MAGIC table demonstrates fluency in both approaches — useful for the cert and
-# MAGIC interesting in the portfolio.
+# MAGIC table demonstrates fluency in both approaches.
 # MAGIC
 # MAGIC ### About `@dp.temporary_view`
 # MAGIC

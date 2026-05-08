@@ -37,7 +37,7 @@
 # MAGIC -- ------------------------------------------------------------
 # MAGIC -- ⚠️ FOR REFERENCE ONLY — NOT EXECUTED.
 # MAGIC -- This cell documents the open-sharing recipient pattern. The
-# MAGIC -- portfolio scope only exercises the share half (cell above);
+# MAGIC -- project scope only exercises the share half (cell above);
 # MAGIC -- recipient creation was deliberately skipped. See
 # MAGIC -- phases_notes_and_plan/phase_7_notes.md for rationale.
 # MAGIC -- ------------------------------------------------------------

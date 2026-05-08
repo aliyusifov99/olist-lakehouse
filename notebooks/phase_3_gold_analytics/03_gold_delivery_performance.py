@@ -146,7 +146,7 @@
 # MAGIC     ROUND(SUM(CASE WHEN sla_bucket = 'slightly_late' THEN 1 ELSE 0 END) * 100.0 / COUNT(*), 2) AS slightly_late_pct,
 # MAGIC     ROUND(SUM(CASE WHEN sla_bucket = 'very_late'     THEN 1 ELSE 0 END) * 100.0 / COUNT(*), 2) AS very_late_pct,
 # MAGIC
-# MAGIC     -- Composite SLA late rate (slightly_late + very_late) - the "interview-friendly" 6% number
+# MAGIC     -- Composite SLA late rate (slightly_late + very_late) - the headline 6% number
 # MAGIC     ROUND(
 # MAGIC       (SUM(CASE WHEN sla_bucket = 'slightly_late' THEN 1 ELSE 0 END)
 # MAGIC        + SUM(CASE WHEN sla_bucket = 'very_late' THEN 1 ELSE 0 END)) * 100.0 / COUNT(*),

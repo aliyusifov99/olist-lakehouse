@@ -47,7 +47,7 @@ targets:
       # in any individual user's home, so they survive that user
       # leaving the org.
       root_path: /Shared/.bundle/prod/${bundle.name}
-    # Production permissions are illustrative for portfolio purposes.
+    # Production permissions are illustrative.
     # In a real org these group names would already exist in the
     # account; here they're documented as the intent.
     permissions:

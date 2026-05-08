@@ -403,7 +403,7 @@ tables, ready to expose to external consumers via the open-sharing protocol.
 - **`SELECT` is the only privilege.** Sharing is read-only by design.
 - **Recipient creation is documented but not executed** in this repo — adding
   the recipient produces a real activation token, which we don't want to ship
-  in a portfolio. See [phase_7_notes.md](phases_notes_and_plan/) for the
+  in a public repo. See [phase_7_notes.md](phases_notes_and_plan/) for the
   rationale.
 
 **Walkthrough**

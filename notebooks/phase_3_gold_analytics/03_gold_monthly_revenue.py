@@ -169,7 +169,7 @@
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC -- Quick sanity check: project plan's interview prep notes mention 'health_beauty'
+# MAGIC -- Quick sanity check: project notes mention 'health_beauty'
 # MAGIC -- as the top category. This query verifies that.
 # MAGIC SELECT
 # MAGIC   category_name_en,

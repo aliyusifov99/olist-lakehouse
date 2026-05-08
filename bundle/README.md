@@ -1,8 +1,8 @@
 # Databricks Asset Bundle — `olist-lakehouse`
 
 This bundle defines the SDP pipeline and Unity Catalog schemas as
-infrastructure-as-code. It is deliverable for the
-`olist-lakehouse` portfolio project.
+infrastructure-as-code. It is the deliverable for the
+`olist-lakehouse` project.
 
 ## What this bundle deploys
 
@@ -16,14 +16,14 @@ infrastructure-as-code. It is deliverable for the
 
 ## What this bundle does NOT deploy
 
-Deliberately out of scope for the portfolio version:
+Deliberately out of scope for this version:
 
 - **The catalog itself.** `olist_lakehouse_us` is the workspace's
   auto-created catalog. The bundle deploys schemas into
   it but does not own its lifecycle.
 - **The SQL warehouse, dashboards, and alerts.** Phase 5 artifacts
   could be bundle-managed (`resources.dashboards`, `resources.sql_warehouses`),
-  but were left as UI-managed for the portfolio. The pattern is
+  but were left as UI-managed in this version. The pattern is
   identical to the schemas file.
 - **Delta Sharing artifacts.** Phase 7's share + recipient could be
   bundle-managed similarly.
@@ -81,7 +81,7 @@ The bundle YAML is **authored and validated**, but the actual
 `databricks bundle deploy` was not executed against the workspace.
 The SDP pipeline already exists from Phase 4 (created via the UI),
 and a parallel bundle-deployed copy would either conflict or
-duplicate it under a `[dev <user>]` prefix. The portfolio value of
+duplicate it under a `[dev <user>]` prefix. The value of
 DABs is the IaC definition itself — the YAML is reviewable, the
 deploy command is documented, and a fresh-workspace replay would
 work. This is documented honestly rather than concealing it.
