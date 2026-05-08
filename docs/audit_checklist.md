@@ -74,3 +74,17 @@ commit, not to skip the review.
 
 ## What to do if a check fails
 
+1. **Stop. Do not push.** Do not try to amend-and-force-push as a quick fix
+   — if the value was ever pushed, force-pushing alone won't help.
+2. **Rotate the credential first.** Even if the commit is still local,
+   treat the value as compromised. Issue a new token/key, update the
+   consumers, then revoke the old one in Databricks / GCP / GitHub.
+3. **Then clean the working tree.** Remove the value, replace it with a
+   `dbutils.secrets.get(scope, key)` reference (or move CLI auth to
+   `~/.databrickscfg`), and re-stage.
+4. **Re-run this audit.** The script must exit `0` before you push.
+5. **If the credential was already pushed:** in addition to rotating,
+   purge it from history with `git filter-repo` (or BFG), then
+   force-push the rewritten history. Notify anyone who may have cloned
+   the repo in the interim.
+   Reference: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository

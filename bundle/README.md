@@ -28,9 +28,10 @@ Deliberately out of scope for this version:
 - **Delta Sharing artifacts.** Phase 7's share + recipient could be
   bundle-managed similarly.
 - **Jobs.** This project intentionally has no Lakeflow Jobs — SDP
-  self-orchestrates the medallion (see project plan §18, "Why didn't
-  you wrap the imperative chain in a Lakeflow Job?"). If a freshness-
-  check job were added, it would land in `resources/olist_jobs.yml`.
+  self-orchestrates the medallion, so wrapping the imperative chain in
+  a Job would duplicate that orchestration without adding value. If a
+  freshness-check job were added, it would land in
+  `resources/olist_jobs.yml`.
 
 ## Targets
 

@@ -38,8 +38,9 @@
 # MAGIC -- ⚠️ FOR REFERENCE ONLY — NOT EXECUTED.
 # MAGIC -- This cell documents the open-sharing recipient pattern. The
 # MAGIC -- project scope only exercises the share half (cell above);
-# MAGIC -- recipient creation was deliberately skipped. See
-# MAGIC -- phases_notes_and_plan/phase_7_notes.md for rationale.
+# MAGIC -- recipient creation was deliberately skipped because adding a
+# MAGIC -- recipient produces a real activation token we don't want to
+# MAGIC -- ship in a public repo.
 # MAGIC -- ------------------------------------------------------------
 # MAGIC -- Open-sharing recipient: token-based, for consumers without a
 # MAGIC -- Databricks workspace (external BI tools, partners, customers).

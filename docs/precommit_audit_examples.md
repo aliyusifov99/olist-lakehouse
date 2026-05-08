@@ -66,7 +66,7 @@ here.
 ### Comment mentioning the prefix
 
 ```python
-# notebooks/phase_8_security_audit/03_pre_commit_audit.py — SAFE
+# notebooks/phase_8_security_audit/08_pre_commit_audit.py — SAFE
 # The grep checks for 'dapi' because Databricks PATs start with that prefix.
 ```
 
@@ -104,7 +104,7 @@ of eyeballing; a false negative costs a credential rotation.
 When the audit flags a hit, ask: **"Is the actual credential value
 present in the file?"**
 
-- Yes → true positive → fix per RECOVERY_RUNBOOK.md
+- Yes → true positive → rotate the credential first, then clean history (see [audit_checklist.md](audit_checklist.md#what-to-do-if-a-check-fails))
 - No (just the prefix word in comments/docs) → false positive → push
 
 If you can't tell at a glance, treat it as a true positive. The cost

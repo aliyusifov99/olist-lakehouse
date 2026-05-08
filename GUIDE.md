@@ -403,8 +403,8 @@ tables, ready to expose to external consumers via the open-sharing protocol.
 - **`SELECT` is the only privilege.** Sharing is read-only by design.
 - **Recipient creation is documented but not executed** in this repo — adding
   the recipient produces a real activation token, which we don't want to ship
-  in a public repo. See [phase_7_notes.md](phases_notes_and_plan/) for the
-  rationale.
+  in a public repo. The recipient half of the share is shown as commented
+  reference SQL in [07_delta_sharing.py](notebooks/phase_7_delta_sharing/07_delta_sharing.py).
 
 **Walkthrough**
 
@@ -527,8 +527,6 @@ targets:
 
 ## What to read next
 
-- **Per-phase rationale & decisions:** [phases_notes_and_plan/](phases_notes_and_plan/)
-  — design notes for each phase, including trade-offs and "why not X" calls.
 - **Quickstart commands:** [README.md](README.md#quickstart)
 - **Dataset bootstrap:** [data/README.md](data/README.md)
 - **Bundle deep-dive:** [bundle/README.md](bundle/README.md)
